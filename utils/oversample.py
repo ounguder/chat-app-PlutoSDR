@@ -1,6 +1,6 @@
 from numpy import zeros
 
- """
+"""
     Oversample the input array by inserting M-1 zeros between each pair of elements.
 
     This function performs oversampling on the input 'my_array' by inserting M-1 zeros between
@@ -21,7 +21,7 @@ from numpy import zeros
     """
 
 def oversample(my_array, M):
-  
+
     N = len(my_array)
     oversampled_array = zeros(N * M)
     oversampled_array[::M] = my_array

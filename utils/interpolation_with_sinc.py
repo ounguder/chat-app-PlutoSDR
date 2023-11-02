@@ -2,7 +2,7 @@ from scipy.signal import convolve
 from numpy import fix
 from .pulse_shape import srrc
 
- """
+"""
     Interpolate sampled data using a sinc-based interpolation filter.
 
     This function performs interpolation on the given 'sampledData' using a sinc-based interpolation
@@ -42,7 +42,7 @@ def interpolation_with_sinc(sampledData,
                             oneSidedLength,
                             osFactor,
                             beta=0):
-   
+                            
     # index is the starting point
     nOfLobes = oneSidedLength
     P = osFactor

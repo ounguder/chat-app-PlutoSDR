@@ -1,6 +1,6 @@
 from numpy import arange, sqrt, cos, sin, pi
 
- """
+"""
     Generate a Square-Root Raised Cosine (SRRC) pulse with specified parameters.
 
     This function generates an SRRC pulse with the given number of symbols 'syms', roll-off factor 'beta',
@@ -28,7 +28,7 @@ from numpy import arange, sqrt, cos, sin, pi
         System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 11, pp. 247-249.
     """
 def srrc(syms, beta, P, t_off=0):
-  
+
     # s = (4*beta/np.sqrt(P)) kismi srrcyi scale ediyor.
     # syms  = Half of Total Number of Symbols
     P = P

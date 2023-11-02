@@ -1,5 +1,14 @@
 from numpy import add, array
+"""
+    Generates a Barker code header based on the specified Barker type and modulation type.
 
+    Parameters:
+    - barker_type (str): Type of Barker code to generate ('barker13', 'barker11', or 'barker7').
+    - modulation_type (str): Type of modulation ('QAM3' or other).
+
+    Returns:
+    - header (array of complex numbers): Barker code header modulated based on the specified Barker type and modulation type.
+    """
 
 def barker_generator(barker_type, modulation_type):
     headerType = barker_type

@@ -11,13 +11,13 @@ def generate_filter(fs, filter_type, center_freq, bandwidth, transition_width,
     or a band-pass filter. The filter type, center frequency, bandwidth, transition width,
     and number of taps are specified as inputs.
 
-    Args:
-        fs (float): Sampling frequency of the filter.
-        filtType (str): Filter type. Either 'lp' (low-pass) or 'bp' (band-pass).
-        centerFreq (float): Center frequency of the filter.
-        bandwidth (float): Bandwidth of the filter (for 'lp') or width of the passband (for 'bp').
-        transWidth (float): Transition width of the filter.
-        nOfTaps (int): Number of taps in the filter.
+    Parameters:
+    - filter_type (str): Type of filter ('lp' for low-pass, 'bp' for band-pass).
+    - center_freq (float): Center frequency of the filter in Hz.
+    - bandwidth (float): Bandwidth of the filter in Hz.
+    - transition_width (float): Transition width of the filter in Hz.
+    - fs (float): Sampling frequency in Hz.
+    - number_of_taps (int): Number of taps for the filter.
 
     Returns:
         numpy.ndarray: An array of filter tap coefficients generated using the Remez algorithm.

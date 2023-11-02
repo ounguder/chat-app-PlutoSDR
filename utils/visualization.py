@@ -24,11 +24,7 @@ def plot_spectrum(x, Ts):
         power spectral density (PSD) of the input signal 'x'. Make sure the 'ss' module
         is available and the 'my_psd' function is defined before using this function.
 
-    Example:
-        signal = np.array([...])  # Complex input signal
-        samplingPeriod = 0.01     # Sampling period of the signal
-        plotspec2(signal, samplingPeriod)
-        # Displays plots showing time-domain signal and its power spectral density.
+
     """
     N = len(x)
     fs = 1 / Ts
@@ -81,10 +77,6 @@ def constellation_plot(rx):
         The function generates a scatter plot of the complex symbols, showing their distribution
         in the complex plane.
 
-    Example:
-        receivedSymbols = np.array([...])  # Complex symbols received
-        constellationPlot(receivedSymbols)
-        # Generates a constellation plot of the received complex symbols.
 
     """
     symbols_real = real(rx)
@@ -102,12 +94,12 @@ def constellation_plot_with_threshold(rx, threshold_array):
     Generate a constellation plot with threshold markers for a given set of complex symbols.
 
     This function generates a constellation plot for a given set of complex symbols 'rx', along with
-    threshold markers represented by 'thresHoldArray'. The plot displays the real part of symbols on
+    threshold markers represented by 'threshold_array'. The plot displays the real part of symbols on
     the x-axis and the imaginary part on the y-axis.
 
     Args:
         rx (numpy.ndarray): Array of complex symbols to be plotted.
-        thresHoldArray (numpy.ndarray): Array of complex threshold values for reference.
+        threshold_array (numpy.ndarray): Array of complex threshold values for reference.
 
     Returns:
         None
@@ -116,11 +108,6 @@ def constellation_plot_with_threshold(rx, threshold_array):
         The function generates a scatter plot of the complex symbols and the threshold markers,
         showing their distribution in the complex plane.
 
-    Example:
-        receivedSymbols = np.array([...])  # Complex symbols received
-        thresholdValues = np.array([...])   # Complex threshold values
-        constellationPlotWithTHold(receivedSymbols, thresholdValues)
-        # Generates a constellation plot of the received complex symbols with threshold markers.
 
     """
     symbols_real = real(rx)

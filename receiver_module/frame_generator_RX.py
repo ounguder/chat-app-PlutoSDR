@@ -19,7 +19,8 @@ Args:
         modulation_type (str): Modulation type used for transmission ('4QAM', 'QAM3', etc.).
 
     Returns:
-        str: Concatenated messages extracted from received symbols.
+        my_msg (str): A string representing the generated message after processing the input symbols
+                    based on correlation indices, values, and modulation type.
 
 
 """

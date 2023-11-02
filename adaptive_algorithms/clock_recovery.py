@@ -5,10 +5,10 @@ from numpy import zeros
 def clock_recovery_OP_max(baseband_signal, t_now, half_number_of_symbols,
                           oversampling_factor, mu, delta, beta):
     """
-    Perform clock recovery on sampled data using a PLL-based method.
+    Perform clock recovery on sampled data.
 
-    This function performs clock recovery on the given 'baseband_signal' using a phase-locked loop (PLL)-based
-    method. The clock recovery is achieved using the provided parameters and interpolation methods.
+    This function performs clock recovery on the given 'baseband_signal'.
+    The clock recovery is achieved using the provided parameters and interpolation methods.
 
     Args:
         baseband_signal (numpy.ndarray): Array containing baseband signal data for clock recovery.
@@ -19,14 +19,20 @@ def clock_recovery_OP_max(baseband_signal, t_now, half_number_of_symbols,
         delta (float): Timing error detection window.
         beta (float): Roll-off factor for interpolation filter.
 
+    
+
     Returns:
         tuple: A tuple containing:
             - numpy.ndarray: Array of recovered timing errors at each iteration.
             - numpy.ndarray: Array of recovered samples at each iteration.
 
     Note:
-        This function utilizes the 'interpolation_with_sinc' function for interpolation and implements a
-        phase-locked loop (PLL)-based method for clock recovery.
+        This function utilizes the 'interpolation_with_sinc' function for interpolation.
+
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "Timing Recovery", in Software Receiver Design: Build
+        your Own Digital Communication System in Five Easy Steps. Cambridge University
+        Press, Aug. 2011,ch. 12, pp. 261-266.
     """
     m = oversampling_factor
     l = half_number_of_symbols

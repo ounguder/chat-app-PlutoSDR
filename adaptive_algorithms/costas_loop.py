@@ -21,6 +21,11 @@ from matplotlib.pyplot import subplots
 
     Note:
         This function utilizes a Costas loop for carrier frequency and phase offset estimation in QAM signals.
+    
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "A Digital Quadrature Amplitude
+        Modulation Radio", in Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 16, pp. 367-371.
     """
 
 

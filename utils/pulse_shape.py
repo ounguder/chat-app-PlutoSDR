@@ -1,34 +1,34 @@
 from numpy import arange, sqrt, cos, sin, pi
 
+ """
+    Generate a Square-Root Raised Cosine (SRRC) pulse with specified parameters.
 
-def srrc(syms, beta, P, t_off=0):
-    """
-    Generate a Square-Root Raised Cosine (SRRC) pulse shape.
-
-    This function generates a Square-Root Raised Cosine (SRRC) pulse shape for pulse shaping in
-    digital communication systems. The generated pulse shape is scaled based on provided parameters.
+    This function generates an SRRC pulse with the given number of symbols 'syms', roll-off factor 'beta',
+    and oversampling factor 'P'. The pulse is generated for a range of time values and can be optionally time-shifted.
 
     Args:
-        syms (int): Half of the total number of symbols.
-        beta (float): Roll-off factor for the SRRC pulse shape.
+        syms (int): Half of Total Number of Symbols.
+        beta (float): Roll-off factor.
         P (int): Oversampling factor.
         t_off (float, optional): Time offset. Default is 0.
 
     Returns:
-        numpy.ndarray: An array representing the generated SRRC pulse shape.
-
-    Note:
-        The SRRC pulse shape is generated based on the provided parameters. It is used for pulse
-        shaping in digital communication systems.
+        numpy.ndarray: SRRC pulse waveform.
 
     Example:
-        halfSymbols = 4        # Half of the total number of symbols
-        rollOffFactor = 0.5    # Roll-off factor for the SRRC pulse shape
-        oversamplingFactor = 8 # Oversampling factor
-        pulseShape = srrc(halfSymbols, rollOffFactor, oversamplingFactor)
-        # Returns the generated SRRC pulse shape.
+        symbols = 8           # Half of Total Number of Symbols
+        roll_off = 0.5        # Roll-off factor
+        oversampling = 4      # Oversampling factor
+        time_offset = 1.0     # Time offset
+        srrc_pulse = srrc(symbols, roll_off, oversampling, time_offset)
+        # Returns the SRRC pulse waveform for the specified parameters
 
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "Pulse Shaping and Receive Filterin", in Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 11, pp. 247-249.
     """
+def srrc(syms, beta, P, t_off=0):
+  
     # s = (4*beta/np.sqrt(P)) kismi srrcyi scale ediyor.
     # syms  = Half of Total Number of Symbols
     P = P

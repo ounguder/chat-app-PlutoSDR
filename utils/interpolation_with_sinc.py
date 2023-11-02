@@ -2,13 +2,7 @@ from scipy.signal import convolve
 from numpy import fix
 from .pulse_shape import srrc
 
-
-def interpolation_with_sinc(sampledData,
-                            t: float,
-                            oneSidedLength,
-                            osFactor,
-                            beta=0):
-    """
+ """
     Interpolate sampled data using a sinc-based interpolation filter.
 
     This function performs interpolation on the given 'sampledData' using a sinc-based interpolation
@@ -37,7 +31,18 @@ def interpolation_with_sinc(sampledData,
         interpolatedValue = interpolationWithSinc(data, time, halfSymbols, oversamplingFactor)
         # Returns the interpolated value at the specified time 't'.
 
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "Sampling with Automatic Gain Control", in Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 6, pp. 112-113.
+
     """
+
+def interpolation_with_sinc(sampledData,
+                            t: float,
+                            oneSidedLength,
+                            osFactor,
+                            beta=0):
+   
     # index is the starting point
     nOfLobes = oneSidedLength
     P = osFactor

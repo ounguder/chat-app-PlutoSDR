@@ -11,10 +11,10 @@ def pam_to_letters(symbols_PAM):
     to letters based on a specified mapping scheme.
 
     Args:
-        my4Pam (numpy.ndarray): Input array containing PAM-encoded symbols.
+        symbols_PAM (numpy.ndarray): Input array containing PAM-encoded symbols.
 
     Returns:
-        str: The generated string of letters corresponding to the PAM-encoded symbols.
+        converted_string(str): The generated string of letters corresponding to the PAM-encoded symbols.
 
     Note:
         This function assumes a specific PAM-to-letter mapping:
@@ -24,10 +24,9 @@ def pam_to_letters(symbols_PAM):
         - PAM -3 maps to binary '00'
         # Default Cast => -3 = -1-1j, -1=-1+j, 1 = +1-1j, 3=1+1j
 
-    Example:
-        pamSymbols = np.array([3, 1, -1, 3, 0, -1, 1])  # Input PAM-encoded symbols
-        letterString = pam2letters(pamSymbols)
-        # letterString contains "31-3"
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "Bits to Symbols to Signals", in Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 8, pp. 153-164.
 
     """
     N = len(symbols_PAM)
@@ -60,7 +59,7 @@ def letters_to_pam(text):
         text (str): Input string containing letters to be converted.
 
     Returns:
-        numpy.ndarray: An array of PAM-encoded symbols generated from the input letters.
+       symbols_PAM(numpy.ndarray) : An array of PAM-encoded symbols generated from the input letters.
 
     Note:
         This function processes input letters to generate PAM-encoded symbols using a specific
@@ -69,10 +68,9 @@ def letters_to_pam(text):
         a length of four. The PAM symbols are then generated using the formula:
         symbol = 2 * ord(letter) - 99
 
-    Example:
-        inputText = "HELLO"         # Input text containing letters
-        pamSymbols = letters2pam(inputText)
-        # pamSymbols contains [1, -3, -1, -3, -1, 3, -3, -1, 1, 1, 1, -1]
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, "Bits to Symbols to Signals", in Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011,ch. 8, pp. 153-164.
 
     """
     msg = ""
@@ -99,10 +97,10 @@ def qam_to_pam(symbols_QAM):
     predefined mapping.
 
     Args:
-        QAMSymbols (numpy.ndarray): Input array containing QAM-encoded symbols.
+        symbols_QAM (numpy.ndarray): Input array containing QAM-encoded symbols.
 
     Returns:
-        numpy.ndarray: An array of PAM-encoded symbols generated from the QAM-encoded symbols.
+        symbols_PAM(numpy.ndarray): An array of PAM-encoded symbols generated from the QAM-encoded symbols.
 
     Note:
         This function performs a conversion of QAM-encoded symbols to PAM-encoded symbols using a
@@ -141,10 +139,10 @@ def pam_to_qam(symbols_PAM):
     predefined mapping.
 
     Args:
-        PAMsymbols (numpy.ndarray): Input array containing PAM-encoded symbols.
+        symbols_PAM (numpy.ndarray): Input array containing PAM-encoded symbols.
 
     Returns:
-        numpy.ndarray: An array of QAM-encoded symbols generated from the PAM-encoded symbols.
+        symbols_QAM(numpy.ndarray): An array of QAM-encoded symbols generated from the PAM-encoded symbols.
 
     Note:
         This function performs a conversion of PAM-encoded symbols to QAM-encoded symbols using a
@@ -176,29 +174,26 @@ def pam_to_qam(symbols_PAM):
 
 def qam3_to_pam(symbols_QAM3):
     """
-    Convert a sequence of 32-QAM-encoded symbols to a sequence of corresponding PAM-encoded symbols.
+    Convert a sequence of QAM3-encoded symbols to a sequence of corresponding PAM-encoded symbols.
 
-    This function converts a sequence of 32-QAM-encoded symbols into a sequence of corresponding
+    This function converts a sequence of QAM3-encoded symbols into a sequence of corresponding
     PAM (Pulse Amplitude Modulation)-encoded symbols, based on a predefined mapping.
 
     Args:
-        QAMSymbols (numpy.ndarray): Input array containing 32-QAM-encoded symbols.
+        symbols_QAM3 (numpy.ndarray): Input array containing 32-QAM-encoded symbols.
 
     Returns:
-        numpy.ndarray: An array of PAM-encoded symbols generated from the 32-QAM-encoded symbols.
+        symbols_PAM(numpy.ndarray): An array of PAM-encoded symbols generated from the 32-QAM-encoded symbols.
 
     Note:
-        This function performs a conversion of 32-QAM-encoded symbols to PAM-encoded symbols using a
+        This function performs a conversion of QAM3-encoded symbols to PAM-encoded symbols using a
         predefined mapping:
-        - QAM (-3 - 3j) maps to PAM -3
-        - QAM (-1 - 1j) maps to PAM -1
-        - QAM (1 + 1j) maps to PAM 1
-        - QAM (3 + 3j) maps to PAM 3
+        - QAM3 (-3 - 3j) maps to PAM -3
+        - QAM3 (-1 - 1j) maps to PAM -1
+        - QAM3 (1 + 1j) maps to PAM 1
+        - QAM3 (3 + 3j) maps to PAM 3
 
-    Example:
-        qamSymbols = np.array([1 + 1j, -3 - 3j, -1 - 1j, 3 + 3j])  # Input 32-QAM-encoded symbols
-        pamSymbols = qam32pam(qamSymbols)
-        # pamSymbols contains [3, -3, -1, 1]
+    
 
     """
     N = len(symbols_QAM3)
@@ -217,30 +212,27 @@ def qam3_to_pam(symbols_QAM3):
 
 def pam_to_qam3(symbols_PAM):
     """
-    Convert a sequence of PAM-encoded symbols to a sequence of corresponding 32-QAM-encoded symbols.
+    Convert a sequence of PAM-encoded symbols to a sequence of corresponding QAM3-encoded symbols.
 
     This function converts a sequence of PAM (Pulse Amplitude Modulation)-encoded symbols into
-    a sequence of corresponding 32-QAM (Quadrature Amplitude Modulation)-encoded symbols,
+    a sequence of corresponding QAM3 (Quadrature Amplitude Modulation)-encoded symbols,
     based on a predefined mapping.
 
     Args:
-        PAMsymbols (numpy.ndarray): Input array containing PAM-encoded symbols.
+        symbols_PAM (numpy.ndarray): Input array containing PAM-encoded symbols.
 
     Returns:
-        numpy.ndarray: An array of 32-QAM-encoded symbols generated from the PAM-encoded symbols.
+        symbols_QAM3(numpy.ndarray): An array of QAM3-encoded symbols generated from the PAM-encoded symbols.
 
     Note:
-        This function performs a conversion of PAM-encoded symbols to 32-QAM-encoded symbols using a
+        This function performs a conversion of PAM-encoded symbols to QAM3-encoded symbols using a
         predefined mapping:
-        - PAM -3 maps to QAM (-3 - 3j)
-        - PAM -1 maps to QAM (-1 - 1j)
-        - PAM 1 maps to QAM (1 + 1j)
-        - PAM 3 maps to QAM (3 + 3j)
+        - PAM -3 maps to QAM3 (-3 - 3j)
+        - PAM -1 maps to QAM3 (-1 - 1j)
+        - PAM 1 maps to QAM3 (1 + 1j)
+        - PAM 3 maps to QAM3 (3 + 3j)
 
-    Example:
-        pamSymbols = np.array([3, -3, -1, 1])  # Input PAM-encoded symbols
-        qamSymbols = pam2qam3(pamSymbols)
-        # qamSymbols contains [(-3 - 3j), (-1 - 1j), (1 + 1j), (3 + 3j)]
+
 
     """
     N = len(symbols_PAM)
@@ -266,9 +258,9 @@ def pam(len, M, var):
     order (M) and variance. Each symbol is calculated using a specific formula.
 
     Args:
-        length (int): Length of the desired PAM sequence.
+        len  (int): Length of the desired PAM sequence.
         M (int): Modulation order, representing the number of amplitude levels.
-        variance (float): Variance of the generated PAM symbols.
+        var  (float): Variance of the generated PAM symbols.
 
     Returns:
         numpy.ndarray: An array of PAM-encoded symbols with the specified length.
@@ -282,6 +274,10 @@ def pam(len, M, var):
         modulationOrder = 4     # Modulation order (number of amplitude levels)
         symbolVariance = 0.5    # Variance of the PAM symbols
         pamSequence = pam(sequenceLength, modulationOrder, symbolVariance)
+
+    Resource:
+        C. R. Johnson Jr, W. A. Sethares, and A. G. Klein, Software Receiver Design: Build your Own Digital Communication 
+        System in Five Easy Steps. Cambridge University Press, Aug. 2011..
 
     """
     sequence = (2 * floor(M * rand(len)) - M + 1) * sqrt(3 * var / (M**2 - 1))
